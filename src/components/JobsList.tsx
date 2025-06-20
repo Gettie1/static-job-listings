@@ -13,16 +13,15 @@ function JobsList(){
     }
     
     return (
-        <div className="p-4">
-            <h2 className="text-2xl font-bold mb-4">Job Listings</h2>
+        <div className="p-4 bg-cyan-200">
+            {/* <h2 className="text-2xl font-bold mb-4">Job Listings</h2> */}
             <div className="mb-4 bg-white shadow-lg flex justify-between text-black">
-                <div>
-                <button className="bg-blue-500">
-{filters.map((filter) =>(
-                    filter
-                ))}
-                </button>
-                
+                <div className="p-2 flex gap-2">
+                    {filters.map((filter) => (
+                        <button key={filter} className="bg-blue-500 px-2 py-1 rounded text-white">
+                            {filter}
+                        </button>
+                    ))}
                 </div>
                 <button>
                 clear
