@@ -23,25 +23,31 @@ function JobsList(){
                         </button>
                     ))}
                 </div>
-                <button>
-                clear
+                <button className="mr-4">
+                Clear
                 </button>
             </div>
             <div className="space-y-4">
                 {jobs.map((job) => (
-                    <div key={job.id} className="bg-white text-black shadow-md rounded-lg p-6">
-                        <img src={job.logo} alt="" />
-                        <h3 className="text-lg font-semibold">{job.position}</h3>
-                        <p>{job.company}</p>
-                        <p>{job.location}</p>
-                        <p>{job.postedAt}</p>
-                        <p>{job.contract}</p>
-                        <div className="flex flex-wrap gap-2 mt-2">
+                    <div key={job.id} className="bg-white text-black shadow-md rounded-lg p-6 flex flex-row gap-2 items-center">
+                        <img src={job.logo} alt="" className="w-17 h-17 object-contain mr-2" />
+                        <div className="flex flex-col flex-1">
+                            <p>{job.company}</p>
+                            <h3 className="text-lg font-semibold">{job.position}</h3>
+                            <div className="flex flex-row gap-2">
+                                <p>{job.postedAt}</p>
+                                <p>{job.contract}</p>
+                                <p>{job.location}</p>
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap flex-row gap-2 ml-auto">
+                            <button className="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full cursor-pointer">{job.role}</button>
+                            <button className="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full cursor-pointer">{job.level}</button>
                             {job.languages.map((language) => (
                                 <button 
-                                key={language} 
-                                onClick={() => addFilter(language)}
-                                className="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full cursor-pointer">
+                                    key={language} 
+                                    onClick={() => addFilter(language)}
+                                    className="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full cursor-pointer">
                                     {language}
                                 </button>
                             ))}
