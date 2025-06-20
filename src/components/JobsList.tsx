@@ -18,7 +18,7 @@ function JobsList(){
     return (
         <div className=" pt-6 pl-20 pr-20 bg-teal-50">
         <header className="w-full flex justify-center mb-6">
-            <img src="public/bg-header-mobile.svg" alt="" className="w-full object-cover h-20 bg-teal-600"></img>
+            <img src="/bg-header-mobile.svg" alt="" className="w-full object-cover h-20 bg-teal-600" />
         </header>
             {/* <h2 className="text-2xl font-bold mb-4">Job Listings</h2> */}
             <div className="mb-4 bg-white shadow-lg flex justify-between">
