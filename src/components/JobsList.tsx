@@ -3,7 +3,7 @@ import jobsData  from ".././utils/data.json";
 import type { Jobs } from "../types";
 
 function JobsList(){
-    const [jobs, setJobs] = useState<Jobs[]>(jobsData);
+    const [jobs] = useState<Jobs[]>(jobsData);
     const [filters, setFilters] = useState<string[]>([])
 
     function addFilter(lang:string){
