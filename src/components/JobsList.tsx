@@ -24,13 +24,23 @@ function JobsList(){
             <div className="mb-4 bg-white shadow-lg flex justify-between">
                 <div className="p-2 flex gap-2">
                     {filters.map((filter) => (
-                        <button key={filter} className="bg-teal-50 text-teal-600 px-2 py-1 rounded font-semibold">
-                            {filter}
+                        <button key={filter} className="bg-teal-50 text-teal-600 px-2 py-1 rounded font-semibold flex items-center gap-2">
+                            <span>{filter}</span>
+                            <img
+                                src="./icon-remove.svg"
+                                alt=""
+                                className="h-full border border-gray-300 p-2 m-0 bg-teal-900 object-cover hover:bg-black cursor-pointer"
+                                style={{ minHeight: "100%" }}
+                                onClick={() => setFilters(filters.filter(f => f !== filter))}
+                            />
                         </button>
                     ))}
                 </div>
-                <button className="mr-4 text-gray-400 font-semibold">
-                Clear
+                <button
+                    className="mr-4 text-gray-400 font-semibold hover:underline hover:text-teal-600"
+                    onClick={() => setFilters([])}
+                >
+                    Clear
                 </button>
             </div>
             <div className="space-y-4">
@@ -53,7 +63,7 @@ function JobsList(){
                              )}
                              </div>
                              </div>
-                            <h3 className="text-md font-semibold">{job.position}</h3>
+                            <h3 className="text-md font-semibold hover:text-teal-600">{job.position}</h3>
                             <div className="flex flex-row gap-2 text-gray-400">
                                 <p>{job.postedAt}</p>
                                 <p>{job.contract}</p>
@@ -67,14 +77,18 @@ function JobsList(){
                                 <button 
                                     key={language} 
                                     onClick={() => addFilter(language)}
-                                    className="bg-teal-50  text-xs px-2 py-1 rounded-full cursor-pointer">
+                                    className="bg-teal-50  text-xs px-2 py-1 rounded-full cursor-pointer hover:text-white hover:bg-teal-600">
                                     {language}
                                 </button>
                             ))}
                             {job.tools.map((tool) => (
-                                <span key={tool} className="bg-teal-50 text-teal-600 text-xs px-2 py-1 rounded-full">
+                                <button
+                                    key={tool}
+                                    className="bg-teal-50 text-teal-600 text-xs px-2 py-1 rounded-full hover:text-white hover:bg-teal-600 cursor-pointer"
+                                    onClick={() => addFilter(tool)}
+                                >
                                     {tool}
-                                </span>
+                                </button>
                             ))}
                         </div>
                     </div>
